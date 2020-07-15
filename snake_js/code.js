@@ -84,4 +84,13 @@ function doDrawing(){
         gameOver()
     }
 }
+function gameOver(){
+    ctx.fillStyle = "white"; //будет белого цвета
+    ctx.textBaseline='middle'; // будет по центру
+    ctx.textAlign='center'; // текст располагается по центру
+    ctx.font = 'normal bold 20px serif' // шрифт с засечками толстый нормальный
 
+    ctx.fillText("Игра окончена", C_WIDTH/2, C_HEIGHT/2); // располагается по центру экрана
+    
+    
+}
