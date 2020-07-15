@@ -42,10 +42,10 @@ setTimeout("gameCycle()", DELAY) //проигрывает цикл игры
 
 function loadImages(){
     head = new Image();
-    head.src = "head.png" // менять изображение головы здесь
+    head.src = "head.png"; // менять изображение головы здесь
 
     ball = new Image();
-    ball.src = "dot.png" // загрузка секции тела
+    ball.src = "dot.png"; // загрузка секции тела
 
     apple = new Image();
     apple.src = "apple.png"; // загрузка яблока
@@ -91,6 +91,64 @@ function gameOver(){
     ctx.font = 'normal bold 20px serif' // шрифт с засечками толстый нормальный
 
     ctx.fillText("Игра окончена", C_WIDTH/2, C_HEIGHT/2); // располагается по центру экрана
-    
-    
+}
+
+function move(){
+    for(var z = dots; z > 0; z--){
+        x[z] = x[z - 1]
+        y[z] = y[z - 1]
+    } 
+
+    if(leftDirection){
+        x[0] -= DOT_SIZE;
+    }
+
+    if(rightDirection){
+        x[0] += DOT_SIZE;
+    }
+
+    if(upDirection){
+        y[0] -= DOT_SIZE;
+    }
+
+    if(downDirection){
+        y[0] += DOT_SIZE;
+    }
+}
+
+function checkCollision(){
+    for(var z = dots; z >0; z--){
+        if(z > 3 && x[0] == x[z] && y[0] == y[z]){
+            inGame = false;
+        }
+    }
+    if(y[0] >= C_HEIGHT){
+        inGame = false;
+    }
+    if(y[0] < 0){
+        inGame = false;
+    }
+    if(x[0] >= C_WIDTH){
+        inGame = false;
+    }
+    if(x[0] < 0){
+        inGame = false;
+    }
+}
+function locateApple(){
+    let x = Math.floor(Math.random() * MAX_RAND); // Math floor округление вниз 0.5232
+    apple_x = x * DOT_SIZE
+
+    let y = Math.floor(Math.random() * MAX_RAND); // Math floor округление вниз 0.5232
+    apple_y = y * DOT_SIZE 
+}
+
+function gameCycle(){
+    if(inGame){
+        checkApple(); // столкновение с яблоком
+        checkCollision(); // столкновение с собой и стеной
+        move(); // передвижение
+        doDrawing(); // отрисовка холста
+        setTimeout("gameCycle()", DELAY); //основные кадры игры
+    }
 }
