@@ -67,3 +67,21 @@ function checkApple(){
     }
 }
 
+function doDrawing(){
+    ctx.clearRect(0, 0, C_WIDTH, C_HEIGHT) //очищаем холст
+
+    if(inGame){
+        ctx.drawImage(apple, apple_x, apple_y) //изображение, позиция x и y
+
+        for(var z = 0; z < dots; z++){
+            if(z ==0){
+                ctx.drawImage(head, x[z], y[z])
+            } else{
+                ctx.drawImage(ball, x[z], y[z])
+            }
+        }
+    } else{
+        gameOver()
+    }
+}
+
