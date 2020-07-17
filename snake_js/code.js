@@ -169,13 +169,13 @@ onkeydown = function(e){
     if(key == UP_KEY && !downDirection){
         upDirection = true;
         rightDirection = false;
-        downDirection = false;
+        leftDirection = false;
     }
 
     if(key == DOWN_KEY && !upDirection){
         downDirection = true;
-        upDirection = false;
         rightDirection = false;
+        leftDirection = false;
     }
 
 }
