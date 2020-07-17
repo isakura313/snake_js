@@ -152,3 +152,30 @@ function gameCycle(){
         setTimeout("gameCycle()", DELAY); //основные кадры игры
     }
 }
+onkeydown = function(e){
+    var key = e.keyCode;
+
+    if(key == LEFT_KEY && !rightDirection){
+        leftDirection = true;
+        upDirection = false;
+        downDirection = false;
+    }
+
+    if(key == RIGHT_KEY && !leftDirection){
+        rightDirection = true;
+        upDirection = false;
+        downDirection = false;
+    }
+    if(key == UP_KEY && !downDirection){
+        upDirection = true;
+        rightDirection = false;
+        downDirection = false;
+    }
+
+    if(key == DOWN_KEY && !upDirection){
+        downDirection = true;
+        upDirection = false;
+        rightDirection = false;
+    }
+
+}
