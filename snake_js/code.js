@@ -19,7 +19,7 @@ var inGame = true;
 const DOT_SIZE = 10; //размер одной нашей точки
 const ALL_DOTS = 900; // количество всех точек по формуле (500*500)/(10*10)
 const MAX_RAND = 29; // максимальное рандомное число
-const DELAY = 100; //отвечает за скорость нашей игры
+const DELAY = 50; //отвечает за скорость нашей игры
 const C_HEIGHT = 500; // высота нашего холста
 const C_WIDTH = 500;  //ширина нашего холста
 
@@ -42,10 +42,10 @@ setTimeout("gameCycle()", DELAY) //проигрывает цикл игры
 
 function loadImages(){
     head = new Image();
-    head.src = "head.png"; // менять изображение головы здесь
+    head.src = "head_1.png"; // менять изображение головы здесь
 
     ball = new Image();
-    ball.src = "dot.png"; // загрузка секции тела
+    ball.src = "dot_1.png"; // загрузка секции тела
 
     apple = new Image();
     apple.src = "apple.png"; // загрузка яблока
