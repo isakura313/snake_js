@@ -14,6 +14,8 @@ var rightDirection = true; // по умолчанию наша змейка дв
 var upDirection = false;
 var downDirection = false;
 var inGame = true; 
+var music = new Audio('music.mp3')
+var game_over_music = new Audio('game_over.mp3')
 
 
 const DOT_SIZE = 10; //размер одной нашей точки
@@ -91,6 +93,9 @@ function gameOver(){
     ctx.font = 'normal bold 20px serif' // шрифт с засечками толстый нормальный
 
     ctx.fillText("Игра окончена", C_WIDTH/2, C_HEIGHT/2); // располагается по центру экрана
+    music.currentTime = 0;
+    music.pause()
+    game_over_music.play()
 }
 
 function move(){
@@ -145,6 +150,7 @@ function locateApple(){
 
 function gameCycle(){
     if(inGame){
+        music.play()
         checkApple(); // столкновение с яблоком
         checkCollision(); // столкновение с собой и стеной
         move(); // передвижение
