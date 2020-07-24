@@ -43,7 +43,7 @@ locateApple()
 setTimeout("gameCycle()", DELAY) //проигрывает цикл игры
 
 function getRandom(arr){
-    
+    let rand = Math.random()
 }
 
 function loadImages(){
