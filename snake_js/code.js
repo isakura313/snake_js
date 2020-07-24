@@ -42,6 +42,10 @@ createSnake()
 locateApple()
 setTimeout("gameCycle()", DELAY) //проигрывает цикл игры
 
+function getRandom(arr){
+    
+}
+
 function loadImages(){
     head = new Image();
     head.src = "head_1.png"; // менять изображение головы здесь
